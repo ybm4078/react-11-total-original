@@ -3,20 +3,20 @@ import type { DefaultTheme } from "styled-components";
 export const LightTheme: DefaultTheme = {
     icon: "☀️",
     color: {
-        background: "#FFF",
+        background: "#f4f4f4",
         text: "#111",
         primary: "#6C63FF",
-        muted: "#f4f4f4",
+        muted: "#fff",
     },
 };
 
 export const DarkTheme: DefaultTheme = {
     icon: "🌙",
     color: {
-        background: "#111",
+        background: "#222",
         text: "#FFF",
         primary: "#6C63FF",
-        muted: "#222",
+        muted: "#111",
     },
 };
 
