@@ -16,6 +16,7 @@ const Div1 = styled.div`
     border: 1px solid ${props => props.theme.color.border};
     border-radius: 10px;
     margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
 
     div {
         font-size: 24px;
@@ -33,9 +34,11 @@ const Div2 = styled.div`
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
+   
 `;
 
 const Card = styled(Link)`
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
     text-decoration: none;
     padding: 30px;
     background-color: ${props => props.theme.color.muted};

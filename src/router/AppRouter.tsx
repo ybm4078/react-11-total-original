@@ -3,9 +3,13 @@ import Home from "../pages/Home.tsx";
 import MainLayout from "../layouts/MainLayout.tsx";
 import Todo from "../pages/Todo.tsx";
 import Coin from "../pages/Coin.tsx";
-import Movie from "../pages/Movie.tsx";
 import Rocket from "../pages/Rocket.tsx";
-import Book from "../pages/Book.tsx";
+import Search from "../pages/MoviePages/Search.tsx";
+import Detail from "../pages/MoviePages/Detail.tsx";
+import MovieHome from "../pages/MoviePages/MovieHome.tsx";
+import BookHome from "../pages/BookPages/BookHome.tsx";
+import BookSearch from "../pages/BookPages/BookSearch.tsx";
+import BookDetail from "../pages/BookPages/BookDetail.tsx";
 
 const AppRouter = () => {
     const routes: RouteObject[] = [
@@ -13,12 +17,26 @@ const AppRouter = () => {
             element: <MainLayout />,
             path: "/",
             children: [
-                { index: true, element: <Home /> }, // Home => "/"
-                { path: "todo", element: <Todo /> }, // About => "/about"
+                { index: true, element: <Home /> },
+                { path: "todo", element: <Todo /> },
                 { path: "coin", element: <Coin /> },
-                { path: "movie", element: <Movie /> },
+                {
+                    path: "movie",
+                    children: [
+                        { index: true, element: <MovieHome /> },
+                        { path: "search", element: <Search /> },
+                        { path: "detail/:id", element: <Detail /> },
+                    ],
+                },
                 { path: "rocket", element: <Rocket /> },
-                { path: "book", element: <Book /> },
+                {
+                    path: "book",
+                    children: [
+                        { index: true, element: <BookHome /> },
+                        { path: "search", element: <BookSearch /> },
+                        { path: "detail/:id", element: <BookDetail /> },
+                    ],
+                },
             ],
         },
     ];
