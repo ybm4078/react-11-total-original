@@ -6,8 +6,10 @@ declare module "styled-components" {
         color: {
             background: string;
             text: string;
+            sideText: string;
             primary: string;
             muted: string;
+            border: string;
         };
     }
 }

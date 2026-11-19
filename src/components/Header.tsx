@@ -16,6 +16,7 @@ const Head = styled.header`
     background-color: ${props => props.theme.color.muted};
     padding: 20px;
     margin-top: 20px;
+    border: 1px solid ${props => props.theme.color.border};
 `;
 
 const Nav = styled.nav`
@@ -28,23 +29,25 @@ const Logo = styled.div`
     display: flex;
     align-items: center;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     color: ${props => props.theme.color.text};
 
     div {
         font-size: 24px;
-        color: #2a51ed;
+        font-weight: 800;
+        color: #5b74e2;
     }
 `;
 
 const Button = styled.button`
-    border: 1px solid gray;
+    border: 1px solid ${props => props.theme.color.border};
     border-radius: 16px;
     padding: 5px 10px;
     color: ${props => props.theme.color.text};
     background-color: ${props => props.theme.color.background};
     margin-left: 50px;
     font-size: 14px;
+
     div {
         display: flex;
         align-items: center;
@@ -53,14 +56,14 @@ const Button = styled.button`
 
 const Hlink = styled(Link)`
     text-decoration: none;
-    color: ${props => props.theme.color.text};
+    color: ${props => props.theme.color.sideText};
     font-size: 14px;
     font-weight: 300;
     display: flex;
     align-items: center;
 
     &:hover {
-        color: #5d79eb;
+        color: #5b74e2;
     }
 `;
 
