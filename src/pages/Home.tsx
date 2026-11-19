@@ -44,7 +44,7 @@ const Card = styled(Link)`
     background-color: ${props => props.theme.color.muted};
     border: 1px solid ${props => props.theme.color.border};
     border-radius: 10px;
-    width: 31%;
+    width: calc((100% - 40px) / 3);
     display: flex;
     flex-direction: column;
     align-items: center;
