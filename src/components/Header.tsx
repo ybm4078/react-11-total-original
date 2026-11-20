@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import { useContext } from "react";
 import { ThemeContext } from "../contests/theme/themeContext.tsx";
 import { FaBook, FaClipboardList, FaMoon, FaSun } from "react-icons/fa";
-import { TbUniverse } from "react-icons/tb";
 import { IoMdCheckbox } from "react-icons/io";
 import { SiBitcoinsv } from "react-icons/si";
 import { BiSolidCameraMovie } from "react-icons/bi";
@@ -12,12 +11,10 @@ import { IoShieldCheckmark } from "react-icons/io5";
 const Head = styled.header`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 64px;
-    background-color: ${props => props.theme.color.muted};
-    padding: 20px;
-    margin-top: 20px;
-    border: 1px solid ${props => props.theme.color.border};
+    padding: 0 20px;
+    
 `;
 
 const Nav = styled.nav`
@@ -26,28 +23,12 @@ const Nav = styled.nav`
     gap: 24px;
 `;
 
-const Logo = styled(Link)`
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 800;
-    color: ${props => props.theme.color.text};
-
-    div {
-        font-size: 24px;
-        font-weight: 800;
-        color: #5b74e2;
-    }
-`;
-
 const Button = styled.button`
     border: 1px solid ${props => props.theme.color.border};
     border-radius: 16px;
     padding: 5px 10px;
     color: ${props => props.theme.color.text};
-    background-color: ${props => props.theme.color.background};
-    margin-left: 50px;
+    background: ${props => props.theme.color.background};
     font-size: 14px;
 
     div {
@@ -55,6 +36,14 @@ const Button = styled.button`
         align-items: center;
     }
 `;
+
+const Div1 = styled.div`
+    margin: 0 25px;
+    font-size: 14px;
+    color: ${props => props.theme.color.sideText};
+`;
+
+
 
 const Hlink = styled(Link)`
     text-decoration: none;
@@ -76,12 +65,6 @@ function Header() {
     return (
         <>
             <Head>
-                <Logo to={"/"}>
-                    <div>
-                        <TbUniverse />
-                    </div>
-                    &nbsp; My Universe
-                </Logo>
                 <Nav>
                     <Hlink to={"/todo"}>
                         <IoMdCheckbox />
@@ -108,6 +91,7 @@ function Header() {
                         &nbsp;Book
                     </Hlink>
                 </Nav>
+                <Div1>|</Div1>
                 <Button onClick={themeContext.toggleTheme}>
                     {themeContext.theme === "light" ? (
                         <div>

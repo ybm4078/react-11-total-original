@@ -2,7 +2,6 @@ import "styled-components";
 
 declare module "styled-components" {
     export interface DefaultTheme {
-        icon: string;
         color: {
             background: string;
             text: string;
@@ -10,6 +9,7 @@ declare module "styled-components" {
             primary: string;
             muted: string;
             border: string;
+            carrick: string;
         };
     }
 }
