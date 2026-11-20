@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router";
 import styled from "styled-components";
-import BookSearchBar from "./BookSearchBar.tsx";
+import SearchBar from "../MoviePages/SearchBar.tsx";
 
 const Container = styled.div`
     padding: 30px;
@@ -109,7 +109,7 @@ function BookSearch() {
         <Container>
             <h3>검색 결과 : {keyword}</h3>
 
-            <BookSearchBar keyword={keyword || ""} />
+            <SearchBar keyword={keyword || ""} />
 
             {loading ? (
                 <Message>로딩 중입니다...</Message>

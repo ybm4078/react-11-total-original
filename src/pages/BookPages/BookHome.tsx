@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import BookSearchBar from "./BookSearchBar.tsx";
+import SearchBar from "../MoviePages/SearchBar.tsx";
+
 
 const Container = styled.div`
     padding: 40px;
@@ -16,7 +17,7 @@ function BookHome() {
     return (
         <Container>
             <Title>Google Books검색</Title>
-            <BookSearchBar keyword={""} />
+            <SearchBar keyword={""} />
         </Container>
     );
 }
