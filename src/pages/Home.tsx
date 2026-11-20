@@ -1,9 +1,10 @@
-import { FaBook, FaHome, FaRocket } from "react-icons/fa";
+import { FaBook, FaClipboardList } from "react-icons/fa";
 import { IoMdCheckbox } from "react-icons/io";
 import { SiBitcoinsv } from "react-icons/si";
 import { BiSolidCameraMovie } from "react-icons/bi";
 import { Link } from "react-router";
 import styled from "styled-components";
+import { IoShieldCheckmark } from "react-icons/io5";
 
 const Container = styled.div`
     padding: 20px;
@@ -97,19 +98,19 @@ function Home() {
                     <div>무비검색앱</div>
                     <span>영화 데이터베이스 API를 활용한 영화 검색</span>
                 </Card>
-                <Card to={"/"}>
+                <Card to={"/product"}>
                     <p>
-                        <FaHome />
+                        <FaClipboardList />
                     </p>
-                    <div>게시판</div>
-                    <span>기본적인 커뮤니티 게시판</span>
+                    <div>상품</div>
+                    <span>기본적인 상품 리스트 및 상세정보</span>
                 </Card>
-                <Card to={"/rocket"}>
+                <Card to={"/form"}>
                     <p>
-                        <FaRocket />
+                        <IoShieldCheckmark />
                     </p>
-                    <div>로켓앱</div>
-                    <span>스페이스X의 로켓 발사 상태 및 상세 정보 조회</span>
+                    <div>로그인</div>
+                    <span>form 정규식을 이용한 input</span>
                 </Card>
                 <Card to={"/book"}>
                     <p>

@@ -2,11 +2,12 @@ import styled from "styled-components";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { ThemeContext } from "../contests/theme/themeContext.tsx";
-import { FaBook, FaHome, FaMoon, FaRocket, FaSun } from "react-icons/fa";
+import { FaBook, FaClipboardList, FaMoon, FaSun } from "react-icons/fa";
 import { TbUniverse } from "react-icons/tb";
 import { IoMdCheckbox } from "react-icons/io";
 import { SiBitcoinsv } from "react-icons/si";
 import { BiSolidCameraMovie } from "react-icons/bi";
+import { IoShieldCheckmark } from "react-icons/io5";
 
 const Head = styled.header`
     display: flex;
@@ -25,7 +26,8 @@ const Nav = styled.nav`
     gap: 24px;
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
+    text-decoration: none;
     display: flex;
     align-items: center;
     font-size: 20px;
@@ -74,15 +76,13 @@ function Header() {
     return (
         <>
             <Head>
-                <Logo>
-                    <div><TbUniverse /></div>
+                <Logo to={"/"}>
+                    <div>
+                        <TbUniverse />
+                    </div>
                     &nbsp; My Universe
                 </Logo>
                 <Nav>
-                    <Hlink to={"/"}>
-                        <FaHome />
-                        &nbsp;Home
-                    </Hlink>
                     <Hlink to={"/todo"}>
                         <IoMdCheckbox />
                         &nbsp;Todo
@@ -95,9 +95,13 @@ function Header() {
                         <BiSolidCameraMovie />
                         &nbsp;Movie
                     </Hlink>
-                    <Hlink to={"/rocket"}>
-                        <FaRocket />
-                        &nbsp;Rocket
+                    <Hlink to={"/product"}>
+                        <FaClipboardList />
+                        &nbsp;product
+                    </Hlink>
+                    <Hlink to={"/form"}>
+                        <IoShieldCheckmark />
+                        &nbsp;form
                     </Hlink>
                     <Hlink to={"/book"}>
                         <FaBook />
