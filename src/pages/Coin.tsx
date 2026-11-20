@@ -1,57 +1,66 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-
 const Container = styled.div`
     display: flex;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 30px
 `;
 
 const CoinList = styled.div`
     width: 320px;
-    max-height: 600px;
+    max-height: 590px;
     overflow-y: auto;
     background: #ffffff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid ${props => props.theme.color.border};
     border-radius: 16px;
-    padding: 12px;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
 `;
 
 const Title = styled.h2`
     position: sticky;
     top: 0;
     width: 100%;
+    padding: 15px;
     background: #ffffff;
-    font-size: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 18px;
     font-weight: 700;
     color: #111827;
+    
 `;
 
 const Div1 = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 14px;
-    border-radius: 10px;
+    padding: 14px 6px;
+    border-bottom: 1px solid #f1f5f9;
     cursor: pointer;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover {
+        background-color: #f8fafc;
+    }
 
     div:first-child {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 3px;
+        font-size: 14px;
         font-weight: 600;
         color: #111827;
 
         span {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 400;
-            color: #6b7280;
+            color: #9ca3af;
         }
     }
 
@@ -59,37 +68,58 @@ const Div1 = styled.div`
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: 2px;
+        gap: 3px;
+        font-size: 13px;
         font-weight: 600;
         color: #111827;
 
         span {
-            font-size: 12px;
-            color: #10b981;
+            font-size: 11px;
+            font-weight: 500;
         }
     }
 `;
 
 const DetailBox = styled.div`
+    height: 590px;
     flex: 1;
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 32px;
+    gap: 16px;
+`;
 
-    h1 {
-        margin: 0 0 24px 0;
-        font-size: 28px;
-        color: #2563eb;
-    }
+const Name = styled.h2`
+    color: black;
+`;
 
-    p {
-        margin: 12px 0;
-        padding: 14px 16px;
-        background: #f8fafc;
-        border-radius: 10px;
-        font-size: 16px;
-        color: #1f2937;
+const DtDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+`;
+
+const Divider = styled.hr`
+    height: 1px;
+    background-color: #f2f2f2;
+    margin: 30px 0;
+`;
+
+const Card = styled.div`
+    width: 50%;
+    padding: 10px 20px 15px;
+    background-color: #f1f1f1;
+    border: 1px solid #f2f2f2;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+
+    span {
+        font-size: 12px;
+        color: #696969;
+        font-weight: 300;
     }
 `;
 
@@ -160,13 +190,28 @@ function App() {
 
             {sideCoin && (
                 <DetailBox>
-                    <h1>
+                    <Name>
                         {sideCoin.name} ({sideCoin.symbol})
-                    </h1>
-                    <p>현재 가격: ${Number(sideCoin.price_usd).toLocaleString()}</p>
-                    <p>시가총액: ${Number(sideCoin.market_cap_usd).toLocaleString()}</p>
-                    <p>24시간 거래량: ${Number(sideCoin.volume24).toLocaleString()}</p>
-                    <p>시가총액 순위: {sideCoin.rank}위</p>
+                    </Name>
+                    <Divider />
+                    <DtDiv>
+                        <Card>
+                            <span>현재 가격 (USD)</span> <br />$
+                            {Number(sideCoin.price_usd).toLocaleString()}
+                        </Card>
+                        <Card>
+                            <span>시가총액</span> <br />$
+                            {Number(sideCoin.market_cap_usd).toLocaleString()}
+                        </Card>
+                        <Card>
+                            <span>24시간 거래량</span> <br />$
+                            {Number(sideCoin.volume24).toLocaleString()}
+                        </Card>
+                        <Card>
+                            <span>시가총액 순위</span> <br />
+                            {sideCoin.rank}위
+                        </Card>
+                    </DtDiv>
                 </DetailBox>
             )}
         </Container>

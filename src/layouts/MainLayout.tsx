@@ -14,8 +14,9 @@ const Wrap = styled.div`
     flex: 1;
     flex-direction: column;
     background: ${props => props.theme.color.background};
-    background-size: contain;
+    background-size: cover;
     color: ${props => props.theme.color.text};
+    transition: all 0.5s ease;
 `;
 
 function MainLayout() {

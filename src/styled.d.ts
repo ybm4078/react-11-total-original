@@ -10,6 +10,7 @@ declare module "styled-components" {
             muted: string;
             border: string;
             carrick: string;
+            gradient: string;
         };
     }
 }

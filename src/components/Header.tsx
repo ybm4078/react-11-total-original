@@ -14,7 +14,7 @@ const Head = styled.header`
     justify-content: flex-end;
     height: 64px;
     padding: 0 20px;
-    
+    transition: all 0.5s ease;
 `;
 
 const Nav = styled.nav`
@@ -28,7 +28,7 @@ const Button = styled.button`
     border-radius: 16px;
     padding: 5px 10px;
     color: ${props => props.theme.color.text};
-    background: ${props => props.theme.color.background};
+    background: none;
     font-size: 14px;
 
     div {
@@ -68,7 +68,7 @@ function Header() {
                 <Nav>
                     <Hlink to={"/todo"}>
                         <IoMdCheckbox />
-                        &nbsp;Todo
+                        &nbsp;{"Todo"}
                     </Hlink>
                     <Hlink to={"/coin"}>
                         <SiBitcoinsv />

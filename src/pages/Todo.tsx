@@ -1,19 +1,18 @@
 import { type ChangeEvent, useState } from "react";
 import * as React from "react";
 import styled from "styled-components";
+import { FaHeart, FaHeartBroken, FaTrash } from "react-icons/fa";
 
 const Container = styled.div`
-    max-width: 480px;
-    margin: 80px auto;
     padding: 30px;
-    background-color: white;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const Title = styled.h1`
     font-size: 1.8rem;
-    color: #333333;
     margin-bottom: 20px;
     text-align: center;
 `;
@@ -21,7 +20,6 @@ const Title = styled.h1`
 const Form = styled.form`
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
 `;
 
 const Input = styled.input`
@@ -40,7 +38,7 @@ const Input = styled.input`
 
 const SubmitButton = styled.button`
     padding: 12px 20px;
-    background-color: #6366f1;
+    background-color: #3451d8;
     color: white;
     font-weight: 600;
     border: none;
@@ -54,22 +52,22 @@ const SubmitButton = styled.button`
 `;
 
 const Divider = styled.hr`
-    border: none;
     height: 1px;
     background-color: #eaeaea;
-    margin: 20px 0;
+    margin: 30px 0;
+    width: 350px;
 `;
 
 const List = styled.ul`
     list-style: none;
-    padding: 0; /* 기본 ul 패딩 초기화 */
+    width: 350px;
 `;
 
 const ListItem = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
+    padding: 2px 16px;
     background-color: #f9fafb;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -165,9 +163,11 @@ function Todo() {
                     <ListItem key={index}>
                         <Text $completed={item.completed}>{item.text}</Text>
                         <ActionButton onClick={() => handleToggleTodo(index)}>
-                            {item.completed ? "❤️" : "🤍"}
+                            {item.completed ? <FaHeartBroken color={"red"}/> : <FaHeart color={"red"} /> }
                         </ActionButton>
-                        <ActionButton onClick={() => handleDeleteTodo(index)}>❌</ActionButton>
+                        <ActionButton onClick={() => handleDeleteTodo(index)}>
+                            <FaTrash />
+                        </ActionButton>
                     </ListItem>
                 ))}
             </List>

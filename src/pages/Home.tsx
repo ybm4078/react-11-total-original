@@ -14,15 +14,7 @@ const Div1 = styled.div`
     position: relative; /* 도형 위치 기준점 */
     overflow: hidden;
     width: 100%;
-    background: linear-gradient(
-        95deg,
-        #ffffff 0%,
-        #ffffff 20%,
-        #dce4ff 40%,
-        #b8c6ff 65%,
-        #98acfb 80%,
-        #7392ff 100%
-    );
+    background: ${props => props.theme.color.gradient};
     padding: 30px;
     border: 1px solid ${props => props.theme.color.border};
     border-radius: 20px;
@@ -42,6 +34,7 @@ const Div1 = styled.div`
     }
 
     /* 오른쪽 앞쪽에 겹치는 테두리(링) 원 */
+
     &::after {
         content: "";
         position: absolute;
